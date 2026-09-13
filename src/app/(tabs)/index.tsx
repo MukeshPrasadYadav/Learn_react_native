@@ -1,12 +1,16 @@
 import "@/global.css";
 import { Link, useRouter } from "expo-router";
 import { Pressable, Text, View } from "react-native";
+import { SafeAreaView as RNSafeViewArea } from "react-native-safe-area-context";
+import {styled} from "nativewind";
+
+const SafeAreaView = styled(RNSafeViewArea)
 
 export default function App() {
   const router = useRouter();
 
   return (
-    <View className="flex-1 items-center justify-center bg-white">
+    <SafeAreaView className="flex-1 bg-background p-5">
       <Text className="text-xl font-bold text-blue-500">
         Welcome to NativeWind!
       </Text>
@@ -26,13 +30,13 @@ export default function App() {
       <Link href="/(auth)/signUP" className="p-2 m-2 rounded-md bg-yellow-700" >Sign up</Link>
       <Link href="/(auth)/singIn" >Sign up</Link>
 
-      <Link href="/suscriptions/spotify" >Suscriptions</Link>
+      <Link href="/Learn_react_native/src/app/suscriptions/spotify" >Suscriptions</Link>
       <Link href={{
         pathname : "/suscriptions/[id]",
         params : {id : "claude"}
       }}>
         Claude
       </Link>
-    </View>
+    </SafeAreaView>
   );
 }
